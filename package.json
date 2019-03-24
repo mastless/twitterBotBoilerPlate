@@ -1,10 +1,10 @@
 {
   "name": "twitterBotBoilerPlate",
   "version": "1.0.0",
-  "description": "Starter project for a twitter bot",
+  "description": "Attempt to create a bot that emits good vibes on twitter for friends",
   "main": "bot.js",
-  "repository": "https://github.com/eduardoescoto/twitterBotBoilerPlate.git",
-  "author": "Eduardo Escoto <eduardo@escoto.me>",
+  "repository": "https://github.com/mastless/twitterBotBoilerPlate.git",
+  "author": "Tristan Sizik , Eduardo Escoto <eduardo@escoto.me>",
   "license": "MIT",
   "dependencies": {
     "twit": "^2.2.9"
