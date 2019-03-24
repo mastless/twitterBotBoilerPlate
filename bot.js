@@ -5,7 +5,7 @@
 let twit = require('twit');
 let apiData = require('./apiKeys.js');
 let Twitter = new twit(apiData);
-const tweetIntervalInMilliseconds = 1000 * 60 * 60 * 6; //setinterval uses milliseconds, this for examples is 6 hours
+const tweetIntervalInMilliseconds = 1000 * 60 * 1 * 1; //setinterval uses milliseconds, this for examples is 6 hours
 
 function postTweet(tweet) {
     let path = 'statuses/update';
@@ -14,7 +14,7 @@ function postTweet(tweet) {
 
 function tweetImage(status, path) {
     let fs = require('fs');
-    const image_path = kirby_love;//local path to image to tweet
+    const image_path = './images/kirby_love.png';//local path to image to tweet
     let b64content = fs.readFileSync(image_path, {
         encoding: 'base64'
     });
@@ -23,12 +23,16 @@ function tweetImage(status, path) {
     }, (err, data, response) => {
         media_ids = new Array(data.media_id_string);
         const tweetData = generateImageTweetData(status, media_ids);
-        console.log("Tweeting the image: " + path);
+        console.log("Tweeting the image: " + image_path);
         postTweet(tweetData);
     });
 
 }
 function generateImageTweetData(status, media_ids) {
+    //input status
+    const status =
+        ' Hello all, I am Kirby Bot, here to give the good vibes :).'
+
     return {
         media_ids,
         status
