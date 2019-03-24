@@ -14,7 +14,7 @@ function postTweet(tweet) {
 
 function tweetImage(status, path) {
     let fs = require('fs');
-    const image_path = path;//local path to image to tweet
+    const image_path = kirby_love;//local path to image to tweet
     let b64content = fs.readFileSync(image_path, {
         encoding: 'base64'
     });
