@@ -1,5 +1,5 @@
 {
-  "name": "twitterBotBoilerPlate",
+  "name": "kirby-twitter-bot",
   "version": "1.0.0",
   "description": "Attempt to create a bot that emits good vibes on twitter for friends",
   "main": "bot.js",
