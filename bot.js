@@ -29,10 +29,6 @@ function tweetImage(status, path) {
 
 }
 function generateImageTweetData(status, media_ids) {
-    //input status
-    const status =
-        ' Hello all, I am Kirby Bot, here to give the good vibes :).'
-
     return {
         media_ids,
         status
@@ -50,7 +46,7 @@ function exampleTweetCreator() {
 }
 function exampleImageTweetCreator() {
     const tweetText = "my quote";
-    const imgPath = "./myimg.jpg"
+    const imgPath = "./images/kirby_love.jpg"
     tweetImage(tweetImage, imgPath);
 }
 function startTweetCycles() {
