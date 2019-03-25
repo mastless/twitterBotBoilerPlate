@@ -34,6 +34,7 @@ function generateImageTweetData(status, media_ids) {
         status
     }
 }
+
 function generateTextTweetData(status) {
     return {
         status
@@ -47,7 +48,7 @@ function exampleTweetCreator() {
 function exampleImageTweetCreator() {
     const tweetText = "my quote";
     const imgPath = "./images/kirby_love.jpg"
-    tweetImage(tweetImage, imgPath);
+    tweetImage(tweetText, imgPath);
 }
 function startTweetCycles() {
     console.log(`Starting the cycle.`);
@@ -55,6 +56,7 @@ function startTweetCycles() {
     exampleImageTweetCreator(); //runs them once before starting the cycle
     setInterval(() => {
         console.log("Running next cycle...");
+
         //put tweet generating function here. 
         //for example a function that gathers quotes off the internet or reads in quotes from a database
         exampleTweetCreator();
