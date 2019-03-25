@@ -28,6 +28,7 @@ function tweetImage(status, path) {
     });
 
 }
+//fill in to make a custom tweet
 function generateImageTweetData(status, media_ids) {
     return {
         media_ids,
@@ -40,6 +41,9 @@ function generateTextTweetData(status) {
         status
     }
 }
+//////
+
+//Example Tweet Functions
 function exampleTweetCreator() {
     const tweetText = "my quote";
     const tweet = generateTextTweetData(tweetText);
@@ -50,6 +54,8 @@ function exampleImageTweetCreator() {
     const imgPath = "./images/kirby_love.jpg"
     tweetImage(tweetText, imgPath);
 }
+//
+
 function startTweetCycles() {
     console.log(`Starting the cycle.`);
     exampleTweetCreator();
