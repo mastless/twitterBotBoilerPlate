@@ -89,7 +89,7 @@ function exampleTweetCreator() {
 }
 function exampleImageTweetCreator() {
     const tweetText = "it me";
-    const imgPath = kirbyMemes[Math.floor(Math.random() * kirbyMemes.length)]
+    const imgPath = kirbyMemes[Math.round(Math.random() * (kirbyMemes.length -1)]
     tweetImage(tweetText, imgPath);
 }
 //
