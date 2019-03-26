@@ -52,7 +52,7 @@ function postTweet(tweet) {
 
 function tweetImage(status, path) {
     let fs = require('fs');
-    const image_path = kirbyMemes[Math.round(Math.random() * (kirbyMemes.length -1))];//local path to image to tweet
+    let image_path = kirbyMemes[Math.round(Math.random() * (kirbyMemes.length -1))];//local path to image to tweet
     let b64content = fs.readFileSync(image_path, {
         encoding: 'base64'
     });
