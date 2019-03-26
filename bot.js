@@ -5,7 +5,45 @@
 let twit = require('twit');
 let apiData = require('./apiKeys.js');
 let Twitter = new twit(apiData);
-const tweetIntervalInMilliseconds = 1000 * 60 * 60 * 60; //setinterval uses milliseconds, this for examples is 6 hours
+const tweetIntervalInMilliseconds = 1000 * 60 * 60 * 6; //setinterval uses milliseconds, this for examples is 6 hours
+let kirbyMemes = [
+    "./images/kirby_love.png",
+    "./images/kirby_bb.png",
+    "./images/kirby_bb2.png",
+    "./images/kirby_boss.png",
+    "./images/kirby_buff.png",
+    "./images/kirby_call.png",
+    "./images/kirby_care.png",
+    "./images/kirby_cloud.png",
+    "./images/kirby_computer.png",
+    "./images/kirby_cool.png",
+    "./images/kirby_cry.png",
+    "./images/kirby_deedee.png",
+    "./images/kirby_evil.png",
+    "./images/kirby_facts.png",
+    "./images/kirby_facts2.png",
+    "./images/kirby_gun.png",
+    "./images/kirby_gun2.png",
+    "./images/kirby_love.png",
+    "./images/kirby_love2.png",
+    "./images/kirby_love3.png",
+    "./images/kirby_love4.png",
+    "./images/kirby_mad.png",
+    "./images/kirby_mad2.png",
+    "./images/kirby_nut.png",
+    "./images/kirby_peter.png",
+    "./images/kirby_sing.png",
+    "./images/kirby_sing2.png",
+    "./images/kirby_sleep.png",
+    "./images/kirby_small_face.png",
+    "./images/kirby_snake.png",
+    "./images/kirby_soda.png",
+    "./images/kirby_spicy.png",
+    "./images/kirby_sword.png",
+    "./images/kirby_threat.png",
+    "./images/kirby_tiddy.png",
+    "./images/kirby_watch.png"
+];
 
 function postTweet(tweet) {
     let path = 'statuses/update';
@@ -50,8 +88,8 @@ function exampleTweetCreator() {
     postTweet(tweet);
 }
 function exampleImageTweetCreator() {
-    const tweetText = "my quote";
-    const imgPath = "./images/kirby_love.jpg"
+    const tweetText = "it me";
+    const imgPath = kirbyMemes[Math.floor(Math.random() * kirbyMemes.length)]
     tweetImage(tweetText, imgPath);
 }
 //
@@ -65,7 +103,7 @@ function startTweetCycles() {
 
         //put tweet generating function here. 
         //for example a function that gathers quotes off the internet or reads in quotes from a database
-        exampleTweetCreator();
+        //exampleTweetCreator();
         exampleImageTweetCreator();
     }, tweetIntervalInMilliseconds);
 }
