@@ -5,7 +5,7 @@
 let twit = require('twit');
 let apiData = require('./apiKeys.js');
 let Twitter = new twit(apiData);
-const tweetIntervalInMilliseconds = 1000 * 60 * 60 * 6; //setinterval uses milliseconds, this for examples is 6 hours
+const tweetIntervalInMilliseconds = 1000 * 60 * 60 * 1; //setinterval uses milliseconds, this for examples is 6 hours
 var kirbyMemes = [
     "./images/kirby_love.png",
     "./images/kirby_bb.png",
