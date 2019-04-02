@@ -64,7 +64,6 @@ function tweetImage(status, path) {
         console.log("Tweeting the image: " + image_path);
         postTweet(tweetData);
     });
-
 }
 //fill in to make a custom tweet
 function generateImageTweetData(status, media_ids) {
@@ -81,20 +80,21 @@ function generateTextTweetData(status) {
 }
 //////
 
-function replyTweet() {
-    var user_id = Twitter.stream('user');
-    user_id.on('tweet',tweetEvent);
-}
-function tweetEvent(eventMsg) {
-    let fs = require('fs');
-    let json = JSON.stringify(eventMsg,null,2);
-    fs.writeFile("tweet.json",json);
+function replyTweet(eventMsg) {
+    let replyto = eventMsg.in_reply_to_screen_name;
+    let text = eventMsg.text;
+    let from = eventMsg.user.screen_name;
+
+    if(replyto == 'KirbsForDays') {
+        let newtweet = '@' + from + ' poyoooo! :)';
+        postTweet(newtweet)
+    }
 }
 
 
 
 //Example Tweet Functions
-function exampleTweetCreator() {
+/*function exampleTweetCreator() {
     const tweetText = "my quote";
     const tweet = generateTextTweetData(tweetText);
     postTweet(tweet);
@@ -104,13 +104,13 @@ function exampleImageTweetCreator() {
     const imgPath = kirbyMemes[Math.round(Math.random() * (kirbyMemes.length -1))];
     tweetImage(tweetText, imgPath);
 }
-//
+*/
 
 function startTweetCycles() {
     console.log(`Starting the cycle.`);
     replyTweet();
-    exampleImageTweetCreator(); //runs them once before starting the cycle
-    setInterval(() => {
+    //exampleImageTweetCreator(); //runs them once before starting the cycle
+   /* setInterval(() => {
         console.log("Running next cycle...");
 
         //put tweet generating function here. 
@@ -118,6 +118,7 @@ function startTweetCycles() {
         //exampleTweetCreator();
         exampleImageTweetCreator();
     }, tweetIntervalInMilliseconds);
+    */
 }
 
 startTweetCycles();
