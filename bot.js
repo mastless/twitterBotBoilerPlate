@@ -52,7 +52,7 @@ function postTweet(tweet) {
 
 function tweetImage(status, path) {
     let fs = require('fs');
-    let image_path = kirbyMemes[Math.round(Math.random() * (kirbyMemes.length -1))];//local path to image to tweet
+    let image_path = path;//local path to image to tweet
     let b64content = fs.readFileSync(image_path, {
         encoding: 'base64'
     });
@@ -81,6 +81,18 @@ function generateTextTweetData(status) {
 }
 //////
 
+function replyTweet() {
+    var user_id = Twitter.stream('user');
+    user_id.on('tweet',tweetEvent);
+}
+function tweetEvent(eventMsg) {
+    let fs = require('fs');
+    let json = JSON.stringify(eventMsg,null,2);
+    fs.writeFile("tweet.json",json);
+}
+
+
+
 //Example Tweet Functions
 function exampleTweetCreator() {
     const tweetText = "my quote";
@@ -96,7 +108,7 @@ function exampleImageTweetCreator() {
 
 function startTweetCycles() {
     console.log(`Starting the cycle.`);
-    //exampleTweetCreator();
+    replyTweet();
     exampleImageTweetCreator(); //runs them once before starting the cycle
     setInterval(() => {
         console.log("Running next cycle...");
