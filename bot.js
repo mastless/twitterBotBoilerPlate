@@ -3,8 +3,14 @@
 // Ask me any questions about this code at @e_esc_ on twitter or at @eduardoescoto on github =)
 
 let twit = require('twit');
-let apiData = require('./apiKeys.js');
+
+//=========heroku launch
+//let apiData = require('./apiKeys.js');
+//let Twitter = new twit(apiData);
+//=========local launch
+let apiData = require('./config.js');
 let Twitter = new twit(apiData);
+
 const tweetIntervalInMilliseconds = 1000 * 60 * 60 * 6; //setinterval uses milliseconds, this for examples is 6 hours
 var kirbyMemes = [
     "./images/kirby_love.png",
@@ -65,7 +71,7 @@ function tweetImage(status, path) {
         postTweet(tweetData);
     });
 }
-//fill in to make a custom tweet
+
 function generateImageTweetData(status, media_ids) {
     return {
         media_ids,
@@ -73,52 +79,22 @@ function generateImageTweetData(status, media_ids) {
     }
 }
 
-function generateTextTweetData(status) {
-    return {
-        status
-    }
-}
-//////
-
-function replyTweet(eventMsg) {
-    let replyto = eventMsg.in_reply_to_screen_name;
-    let text = eventMsg.text;
-    let from = eventMsg.user.screen_name;
-
-    if(replyto == 'KirbsForDays') {
-        let newtweet = '@' + from + ' poyoooo! :)';
-        postTweet(newtweet)
-    }
-}
-
-
-
-//Example Tweet Functions
-/*function exampleTweetCreator() {
-    const tweetText = "my quote";
-    const tweet = generateTextTweetData(tweetText);
-    postTweet(tweet);
-}
 function exampleImageTweetCreator() {
+    console.log("Posting Meme!");
     const tweetText = "it me";
     const imgPath = kirbyMemes[Math.round(Math.random() * (kirbyMemes.length -1))];
     tweetImage(tweetText, imgPath);
 }
-*/
+
 
 function startTweetCycles() {
     console.log(`Starting the cycle.`);
-    replyTweet();
-    //exampleImageTweetCreator(); //runs them once before starting the cycle
-   /* setInterval(() => {
+    exampleImageTweetCreator(); //runs them once before starting the cycle
+   setInterval(() => {
         console.log("Running next cycle...");
-
-        //put tweet generating function here. 
-        //for example a function that gathers quotes off the internet or reads in quotes from a database
-        //exampleTweetCreator();
         exampleImageTweetCreator();
     }, tweetIntervalInMilliseconds);
-    */
 }
+
 
 startTweetCycles();

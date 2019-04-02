@@ -4,6 +4,7 @@ module.exports = {
     access_token: process.env.BOT_ACCESS_TOKEN,
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 }
+
 //Set these api keys to be hardcoded when developing, but set them to this when on heroku
 //enter api keys on heroku dashboard
 // module.exports = {
